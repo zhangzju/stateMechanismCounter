@@ -1,0 +1,17 @@
+## StateMechanismCounter
+
+在前端开发的过程中，如果遵循MVC架构的话，那么不可缺少的就要使用到状态机工具。
+
+In the programming of frontend web,  it`s  obviously that a management tool to oranize our data and controller, aka the state mechanism is  needed.
+
+目前流行的这类软件有Redux吗flux， vuex和reflux。
+
+Such as Redux, flux, Vuex, Reflux.
+
+### Counter
+
+对于一个状态管理工具来说，只有当页面的更改涉及到数据的更换时，才需要进行一次状态函数的运算。
+
+对于这一点，计数器无疑是最方便也是最直观的。
+
+这个仓库收集了许多语言和框架的Counter。
