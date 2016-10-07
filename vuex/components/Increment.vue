@@ -1,10 +1,12 @@
 <template lang="html">
   <div class="increment">
-    <button>Increase</button>
+    <button @click='increment'>Increase</button>
   </div>
 </template>
 
 <script>
+import {incrementCounter} from '../vuex/action'
+
 export default {
   data() {
     return {
@@ -14,7 +16,12 @@ export default {
   ready() {},
   attached() {},
   methods: {},
-  components: {}
+  components: {},
+  vuex: {
+    actions: {
+      increment: incrementCounter
+    }
+  }
 };
 </script>
 
