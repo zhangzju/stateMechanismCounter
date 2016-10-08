@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ButtonActions from './action';
 
 class App extends Component {
+  createNewItem(event) {
+    ButtonActions.addNewItem('new item');
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,7 +16,9 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <p id="counter">0</p>
+          <button id="increment">+</button>
+          <button id="decrement">-</button>
         </p>
       </div>
     );
