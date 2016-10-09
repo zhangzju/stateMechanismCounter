@@ -1,10 +1,14 @@
 import AppDispatcher from './dispatcher';
 
-var ButtonActions = {
-  increment: function (text){
+var Actions = {
+  increment: function (){
     AppDispatcher.dispatch({
-      actionType: 'INCREMENT',
-      text: text
+      actionType: 'INCREMENT'
     });
   },
+  decrement: function (){
+    AppDispatcher.dispatch({
+      actionType: 'DECREMENT'
+    });
+  }
 };

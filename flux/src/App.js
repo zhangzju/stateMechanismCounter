@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ButtonActions from './action';
+import dispatcher from './dispatcher'
 
 class App extends Component {
-  createNewItem(event) {
-    ButtonActions.addNewItem('new item');
+
+  increment(evt) {
+    dispatcher.dispatch({
+      eventName: 'increment'
+    });
+  }
+
+  decrement(evt) {
+    dispatcher.dispatch({
+      eventName: 'decrement'
+    });
   }
 
   render() {
@@ -17,8 +26,8 @@ class App extends Component {
         </div>
         <p className="App-intro">
           <p id="counter">0</p>
-          <button id="increment">+</button>
-          <button id="decrement">-</button>
+          <button id="increment" onClick={this.increment}>+</button>
+          <button id="decrement" onClick={this.decrement}>-</button>
         </p>
       </div>
     );
