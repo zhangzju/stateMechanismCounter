@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import dispatcher from './dispatcher'
+import dispatcher from './dispatcher';
+import store from './store';
 
 class App extends Component {
 
@@ -25,7 +26,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          <p id="counter">0</p>
+          <p>{this.state.counter}</p>
           <button id="increment" onClick={this.increment}>+</button>
           <button id="decrement" onClick={this.decrement}>-</button>
         </p>

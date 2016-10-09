@@ -1,4 +1,4 @@
-var Dispatcher = require( "./dispatcher" );
+import dispatcher from './dispatcher';
 var EventEmitter = require( "events" ).EventEmitter;
 
 var counter = 0;
@@ -17,7 +17,7 @@ var Store = Object.assign( { }, EventEmitter.prototype, {
     this.on( "change", callback );
   },
 
-  dispatcherIndex: Dispatcher.register( function( action ) {
+  dispatcherIndex: dispatcher.register( function( action ) {
     switch ( action.type ) {
       case "INCREMENT":
         counter++;
