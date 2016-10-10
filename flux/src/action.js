@@ -1,16 +1,14 @@
 import AppDispatcher from './dispatcher';
 
-var Actions = {
-  increment: function (){
-    AppDispatcher.dispatch({
+
+export function  increment(){
+    AppDispatcher.handleIncrementAction({
       actionType: 'INCREMENT'
     });
-  },
-  decrement: function (){
-    AppDispatcher.dispatch({
+  }
+
+export function  decrement(){
+    AppDispatcher.handleIncrementAction({
       actionType: 'DECREMENT'
     });
   }
-};
-
-module.exports = Actions;

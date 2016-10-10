@@ -1,36 +1,50 @@
-import dispatcher from './dispatcher';
-var EventEmitter = require( "events" ).EventEmitter;
+import AppDispatcher from './dispatcher';
+import { EventEmitter } from 'events';
 
-var counter = 0;
+const CHANGE_EVENT = 'change';
 
-var Store = Object.assign( { }, EventEmitter.prototype, {
+let store = {
+  number: 0
+};
 
-  getCounter: function() {
-    return counter;
-  },
+class StoreClass extends EventEmitter {
 
-  emitChange: function() {
-    this.emit( "change" );
-  },
+  addChangeListener(cb) {
+    this.on(CHANGE_EVENT, cb);
+  }
 
-  addChangeListener: function( callback ) {
-    this.on( "change", callback );
-  },
+  removeChangeListener(cb) {
+    this.removeListener(CHANGE_EVENT, cb);
+  }
 
-  dispatcherIndex: dispatcher.register( function( action ) {
-    switch ( action.type ) {
-      case "INCREMENT":
-        counter++;
-        Store.emitChange( );
-        break;
-      case "DECREMENT":
-        counter--;
-        Store.emitChange( );
-    }
+  getList() {
+    return store;
+  }
 
+}
+
+const CountStore = new StoreClass();
+
+AppDispatcher.register((payload) => {
+  const action = payload.action;
+
+  switch (action.actionType) {
+
+  case 'INCREMENT':
+    store.number +=1;
+    CountStore.emit(CHANGE_EVENT);
+    break;
+
+  case 'DECREMENT':
+    store.number -=1;
+    CountStore.emit(CHANGE_EVENT);
+    break;
+
+
+  default:
     return true;
-  } )
+  }
+});
 
-} );
 
-module.exports = Store;
+module.exports = CountStore;

@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import dispatcher from './dispatcher';
-import store from './store';
+import {increment, decrement} from './action';
+import CountStore from './store';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = CountStore.getList();
+  }
+
   increment(evt) {
-    dispatcher.dispatch({
-      eventName: 'increment'
-    });
+    increment();
   }
 
   decrement(evt) {
-    dispatcher.dispatch({
-      eventName: 'decrement'
-    });
+    decrement();
   }
 
   render() {
@@ -25,11 +26,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          <p>{this.state.counter}</p>
+        <div>
+          <p>{this.state.number}</p>
           <button id="increment" onClick={this.increment}>+</button>
           <button id="decrement" onClick={this.decrement}>-</button>
-        </p>
+        </div>
       </div>
     );
   }
