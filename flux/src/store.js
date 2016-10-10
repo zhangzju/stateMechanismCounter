@@ -4,7 +4,7 @@ import { EventEmitter } from 'events';
 const CHANGE_EVENT = 'change';
 
 let store = {
-  number: 0
+  number: 1
 };
 
 class StoreClass extends EventEmitter {
@@ -31,12 +31,12 @@ AppDispatcher.register((payload) => {
   switch (action.actionType) {
 
   case 'INCREMENT':
-    store.number +=1;
+    store.number++;
     CountStore.emit(CHANGE_EVENT);
     break;
 
   case 'DECREMENT':
-    store.number -=1;
+    store.number--;
     CountStore.emit(CHANGE_EVENT);
     break;
 
@@ -47,4 +47,4 @@ AppDispatcher.register((payload) => {
 });
 
 
-module.exports = CountStore;
+export default CountStore;

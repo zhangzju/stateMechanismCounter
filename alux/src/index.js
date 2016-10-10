@@ -46,7 +46,8 @@ class App extends React.Component {
     return (
         <div>
             {this.state.alux.change.name}
-            <button onClick={actions.change}>Change</button>
+            <button onClick={actions.change}>+</button>
+            <button onClick={actions.change}>-</button>
         </div>
     );
   }

@@ -11,11 +11,11 @@ class App extends Component {
     this.state = CountStore.getList();
   }
 
-  increment(evt) {
+  increment() {
     increment();
   }
 
-  decrement(evt) {
+  decrement() {
     decrement();
   }
 
